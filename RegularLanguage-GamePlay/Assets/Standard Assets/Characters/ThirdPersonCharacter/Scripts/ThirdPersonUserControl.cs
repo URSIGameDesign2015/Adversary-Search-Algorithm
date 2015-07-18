@@ -13,6 +13,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+		void OnTriggerEnter(Collider other) {
+			if (other.gameObject.CompareTag ("Player"))
+			{
+				this.gameObject.SetActive (false);
+			}
+		}
+
         
         private void Start()
         {
@@ -72,4 +79,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Jump = false;
         }
     }
+
+
+
+
 }
