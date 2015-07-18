@@ -9,5 +9,12 @@ public class Rotator : MonoBehaviour {
 		// Time.deltaTime for smooth rotation
 		transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
 	}
-	
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.CompareTag ("Player"))
+		{
+			this.gameObject.SetActive (false);
+		}
+	}
+
 }
