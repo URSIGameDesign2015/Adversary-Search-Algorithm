@@ -67,6 +67,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				char turn = other.gameObject.GetComponent<PickUp>().charTag;
 				// add it to the string
 				langInstance += turn;
+				print(langInstance);
 				index++;
 				other.gameObject.SetActive (false);
 			}
