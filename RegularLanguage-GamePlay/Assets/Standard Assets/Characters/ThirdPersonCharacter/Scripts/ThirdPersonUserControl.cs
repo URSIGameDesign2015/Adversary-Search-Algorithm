@@ -12,24 +12,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
-		private string langInstance = "";
 
-		// Called when our game touches another trigger collider
-		void OnTriggerEnter(Collider other) {
-			// Keep track that we picked up that object
-			// ----------------------------------------
-			// if purple object { then add p to string}
-			// if blue object { then add b to string }
-			if (other.gameObject.CompareTag ("PickUp"))
-			{
-				// get the next letter
-				char turn = other.gameObject.GetComponent<PickUp>().charTag;
-				// add it to the string
-				langInstance += turn;
-				other.gameObject.SetActive (false);
-			}
-			
-		}
+		// write instance to a file
+		static private string langInstance = "";
+		private int index;
+
+		public int thresholdForTurn;
+		public string finalLocation;
         
         private void Start()
         {
@@ -47,17 +36,42 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // get the third person character ( this should never be null due to require component )
             m_Character = GetComponent<ThirdPersonCharacter>();
+			index = 0;
         }
 
 
         private void Update()
         {
+			if (index >= thresholdForTurn) {
+			//	DontDestroyOnLoad(this.uc);
+			//	DontDestroyOnLoad(this.gameObject);
+			//	this.gameObject.transform.position = new Vector3(172f, 1.7f, 221f);
+				Application.LoadLevel(finalLocation);
+			}
+
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
         }
 
+		// Called when our game touches another trigger collider
+		void OnTriggerEnter(Collider other) {
+			// Keep track that we picked up that object
+			// ----------------------------------------
+			// if purple object { then add p to string}
+			// if blue object { then add b to string }
+			if (other.gameObject.CompareTag ("PickUp"))
+			{
+				// get the next letter
+				char turn = other.gameObject.GetComponent<PickUp>().charTag;
+				// add it to the string
+				langInstance += turn;
+				index++;
+				other.gameObject.SetActive (false);
+			}
+			
+		}
 
         // Fixed update is called in sync with physics
         private void FixedUpdate()
