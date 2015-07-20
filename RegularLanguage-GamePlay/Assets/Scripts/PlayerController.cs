@@ -5,17 +5,11 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	public Text countText;
-	public Text winText;
 	private Rigidbody rb;
-	private int count;
 
 	void Start() 
 	{
 		rb = GetComponent<Rigidbody> ();
-		count = 0;
-		SetCountText ();
-		winText.text = "";
 	}
 
 	// Called every frame for updating things
@@ -38,22 +32,22 @@ public class PlayerController : MonoBehaviour {
 
 	// Called when our game touches another trigger collider
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag ("Pick Up"))
+		// Keep track that we picked up that object
+		// ----------------------------------------
+		// if purple object { then add p to string}
+		// if blue object { then add b to string }
+		if (other.gameObject.CompareTag ("PickUpBlue"))
 		{
 			other.gameObject.SetActive (false);
-			count++;
-			SetCountText();
-		}
-	}
+			// add B to string
+		} else if (other.gameObject.CompareTag("PickUpPurple") {
+			other.gameObject.SetActive (false);
+			// add P to string
 
-	void SetCountText() 
-	{
-		countText.text = " Count: " + count.ToString ();
-		if (count >= 8) 
-		{
-			winText.text = "You Win!";
 		}
+
 	}
+	
 
 	// Destorys!
 	// Destroy(other.gameObject);
