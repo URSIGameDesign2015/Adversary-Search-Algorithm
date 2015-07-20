@@ -12,8 +12,24 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+		private string langInstance = "";
 
-
+		// Called when our game touches another trigger collider
+		void OnTriggerEnter(Collider other) {
+			// Keep track that we picked up that object
+			// ----------------------------------------
+			// if purple object { then add p to string}
+			// if blue object { then add b to string }
+			if (other.gameObject.CompareTag ("PickUp"))
+			{
+				// get the next letter
+				char turn = other.gameObject.GetComponent<PickUp>().charTag;
+				// add it to the string
+				langInstance += turn;
+				other.gameObject.SetActive (false);
+			}
+			
+		}
         
         private void Start()
         {
