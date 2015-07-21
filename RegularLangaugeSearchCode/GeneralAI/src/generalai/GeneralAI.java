@@ -19,7 +19,9 @@ public class GeneralAI {
     public static void main(String[] args) throws IOException {
         // (pfp | bfb)*
         // (pfp)* || (bfb)*
-        Pattern regex = Pattern.compile("(pfp | bfb)*");
+        // (fp|fb)(p|b)(fp|fb)(p|b)
+        // ((fp)(p)|(fb)(b))*
+        Pattern regex = Pattern.compile("(fp|fb)(p|b)(fp|fb)(p|b)");
         //
         String[] compAlpha = new String[] {"fp", "fb"};
         String[] playerAlpha = new String[] {"p", "b"};
