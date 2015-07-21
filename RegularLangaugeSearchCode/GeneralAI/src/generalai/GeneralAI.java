@@ -17,10 +17,12 @@ import java.util.logging.Logger;
 public class GeneralAI {
 
     public static void main(String[] args) throws IOException {
-        Pattern regex = Pattern.compile("(dp|dk)(d|p)(rm|rf)(d|p)");
+        // (pfp | bfb)*
+        // (pfp)* || (bfb)*
+        Pattern regex = Pattern.compile("(pfp | bfb)*");
         //
-        String[] compAlpha = new String[] {"dp", "dk", "rm", "rf"};
-        String[] playerAlpha = new String[] {"d", "p"};
+        String[] compAlpha = new String[] {"fp", "fb"};
+        String[] playerAlpha = new String[] {"p", "b"};
         RegLangGameState regexGame = new RegLangGameState(compAlpha, playerAlpha, regex, "");
         regexGame.turn = true;
         Document strategy = createStrategyDocument(regexGame);
