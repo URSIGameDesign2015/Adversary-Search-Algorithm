@@ -17,13 +17,20 @@ import java.util.logging.Logger;
 public class GeneralAI {
 
     public static void main(String[] args) throws IOException {
-        // (pfp | bfb)*
-        // (pfp)* || (bfb)*
-        // (fp|fb)(p|b)(fp|fb)(p|b)
-        // ((fp)(p)|(fb)(b))*
-        Pattern regex = Pattern.compile("(fp|fb)(p|b)(fp|fb)(p|b)");
+       // p == player chooses purple block
+       // a == game manger adjusted the scene due to the fact the player 
+        // chose the purple block
+        
+        //b == player chooses blue block
+       // c == game manger adjusted the scene due to the fact the player 
+        // chose the blue block
+        // (pa || bc) *
+        // Kleene Star --> *
+        // "(fp|fb)(p|b)(fp|fb)(p|b)"
+        
+        Pattern regex = Pattern.compile("(pa|bc)*");
         //
-        String[] compAlpha = new String[] {"fp", "fb"};
+        String[] compAlpha = new String[] {"a", "c"};
         String[] playerAlpha = new String[] {"p", "b"};
         RegLangGameState regexGame = new RegLangGameState(compAlpha, playerAlpha, regex, "");
         regexGame.turn = true;
