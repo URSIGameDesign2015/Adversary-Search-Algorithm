@@ -24,14 +24,16 @@ public class GeneralAI {
         //b == player chooses blue block
        // c == game manger adjusted the scene due to the fact the player 
         // chose the blue block
-        // (pa || bc) *
+        // (ac || bd) *
         // Kleene Star --> *
         // "(fp|fb)(p|b)(fp|fb)(p|b)"
         
-        Pattern regex = Pattern.compile("(pa|bc)*");
+        // only runs once ((a|b)(c|d).*?)
+        
+        Pattern regex = Pattern.compile("(a|b)(c|d)((ac|bd).*?)");
         //
-        String[] compAlpha = new String[] {"a", "c"};
-        String[] playerAlpha = new String[] {"p", "b"};
+        String[] compAlpha = new String[] {"a", "b"};
+        String[] playerAlpha = new String[] {"c", "d"};
         RegLangGameState regexGame = new RegLangGameState(compAlpha, playerAlpha, regex, "");
         regexGame.turn = true;
         Document strategy = createStrategyDocument(regexGame);
