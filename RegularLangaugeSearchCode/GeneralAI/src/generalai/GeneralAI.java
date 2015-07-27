@@ -29,8 +29,11 @@ public class GeneralAI {
         // "(fp|fb)(p|b)(fp|fb)(p|b)"
         
         // only runs once ((a|b)(c|d).*?)
+        String a1 = "(?=(a|b)(c|d)(a|b)(c|d))";
+        String a2 = "(?=(a|b)(ca|db)(c|d))";
+        String a3 = ".*";
         
-        Pattern regex = Pattern.compile("(a|b)(c|d)((ac|bd).*?)");
+        Pattern regex = Pattern.compile(a1+a2+a3);
         //
         String[] compAlpha = new String[] {"a", "b"};
         String[] playerAlpha = new String[] {"c", "d"};
