@@ -29,11 +29,14 @@ public class GeneralAI {
         // "(fp|fb)(p|b)(fp|fb)(p|b)"
         
         // only runs once ((a|b)(c|d).*?)
-        String a1 = "(?=(a|b)(c|d)(a|b)(c|d))";
-        String a2 = "(?=(a|b)(ca|db)(c|d))";
+        
+        // four turns for each player
+        String a1 = "(?=(a|b)(c|d){4}";
+        // a follows c and b follows d in the player's first three moves
+        String a2 = "(?=(a|b)(ca|db){3}(c|d))";
         String a3 = ".*";
         
-        Pattern regex = Pattern.compile(a1+a2+a3);
+        Pattern regex = Pattern.compile(a2+a3);
         //
         String[] compAlpha = new String[] {"a", "b"};
         String[] playerAlpha = new String[] {"c", "d"};

@@ -7,10 +7,76 @@
           <Move move="a">
             <PlayerResponse>
               <Move move="c">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="a">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
               <Move move="d">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="b">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
             </PlayerResponse>
           </Move>
@@ -21,10 +87,76 @@
           <Move move="b">
             <PlayerResponse>
               <Move move="c">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="a">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
               <Move move="d">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="b">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
             </PlayerResponse>
           </Move>
@@ -39,10 +171,76 @@
           <Move move="a">
             <PlayerResponse>
               <Move move="c">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="a">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
               <Move move="d">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="b">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
             </PlayerResponse>
           </Move>
@@ -53,10 +251,76 @@
           <Move move="b">
             <PlayerResponse>
               <Move move="c">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="a">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
               <Move move="d">
-                <GameOver />
+                <ComputerStrategy>
+                  <Move move="b">
+                    <PlayerResponse>
+                      <Move move="c">
+                        <ComputerStrategy>
+                          <Move move="a">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                      <Move move="d">
+                        <ComputerStrategy>
+                          <Move move="b">
+                            <PlayerResponse>
+                              <Move move="c">
+                                <GameOver />
+                              </Move>
+                              <Move move="d">
+                                <GameOver />
+                              </Move>
+                            </PlayerResponse>
+                          </Move>
+                        </ComputerStrategy>
+                      </Move>
+                    </PlayerResponse>
+                  </Move>
+                </ComputerStrategy>
               </Move>
             </PlayerResponse>
           </Move>
