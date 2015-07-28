@@ -16,67 +16,28 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
 		// write instance to a file
-		static private string langInstance = "";
+		static public string langInstance = "";
 		private int index;
-		private XDocument xmlDoc;
 
 		public int thresholdForTurn;
 		public string finalLocation;
         
         private void Start()
         {
-			// get the transform of the main camera
-			if (Camera.main != null) {
-				m_Cam = Camera.main.transform;
-			} else {
-				Debug.LogWarning (
+		// get the transform of the main camera
+		if (Camera.main != null) {
+			m_Cam = Camera.main.transform;
+		} else {
+			Debug.LogWarning (
                     "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.");
-				// we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
-			}
-
-			// get the third person character ( this should never be null due to require component )
-			m_Character = GetComponent<ThirdPersonCharacter> ();
-			index = 0;
-
-			// Get strategy for the level:
-			// ---------------------------
-			// COMP --> "a, b"
-			// PLAYER --> "c ,d"
-			// (a | b) + (ca | bd) + (c | d)
-
-			// Load XML File: 
-			xmlDoc = XDocument.Load ("strategy.xml");
-			char gmChoice = 'n'; // haven't made one yet
-			if (langInstance.Length == 0) {
-				System.Random rand = new System.Random ();
-				if (rand.Next (0, 2) == 0) {
-					// Drama Manager should move blue closer
-					gmChoice = 'a';
-				} else {
-					// Drama Manger should move purple closer
-					gmChoice = 'b';
-				}
-			} else {
-				// Get player's last choice --> last character put into the language
-				char playerChoice = langInstance [langInstance.Length - 1];
-				// Check strategy via player's choice
-				// ~~~~READ XML FILE~~~~~~~
-				// If strat says return a --> make blue blocks closer
-				// If strat says return b --> make purple blocks closer
-				// do this by making whatever the strategy returns == closerBlocks
-			}
-			// Based on GM's strategy, set up the level
-			setUpLevel (gmChoice);
+			// we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
 		}
 
-		private void setUpLevel(char gmChoice) {
-			if (gmChoice == 'a') {
-				// move blue closer
+		// get the third person character ( this should never be null due to require component )
+		m_Character = GetComponent<ThirdPersonCharacter> ();
+		index = 0;
+	}
 
-			} else {
-				// move purple closer
-			}
-		}
 
 
         private void Update()
