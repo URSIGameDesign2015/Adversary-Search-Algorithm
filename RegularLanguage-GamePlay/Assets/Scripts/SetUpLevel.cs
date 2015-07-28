@@ -11,6 +11,7 @@ public class SetUpLevel : MonoBehaviour {
 		public Material purple;
 
 		private XDocument xmlDoc;
+		//private TextAsset xmlDocument;
 	
 
 	// Use this for initialization
@@ -22,11 +23,14 @@ public class SetUpLevel : MonoBehaviour {
 		// (a | b) + (ca | bd) + (c | d)
 		
 		// Load XML File: 
-		// xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/");
+		xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/strategy.xml");
+		
 		char gmChoice = 'n'; // haven't made one yet
 		// getting our language instance from the player --> it's 
 		// static so we can use it here and transfer between levels
 		string langInstance = ThirdPersonUserControl.langInstance;
+
+		// If it's the beginning, then the GM can make any choice
 		if (langInstance.Length == 0) {
 			System.Random rand = new System.Random ();
 			if (rand.Next (0, 2) == 0) {
@@ -36,14 +40,18 @@ public class SetUpLevel : MonoBehaviour {
 				// Drama Manger should move purple closer
 				gmChoice = 'b';
 			}
+		// Otherwise it should follow the player's last choice
 		} else {
 			// Get player's last choice --> last character put into the language
 			char playerChoice = langInstance [langInstance.Length - 1];
-			// Check strategy via player's choice
+			// Find out GM's choice by using player's choice and current langInstance
+			// in the strategy file
+
 			// ~~~~READ XML FILE~~~~~~~
-			// If strat says return a --> make blue blocks closer
-			// If strat says return b --> make purple blocks closer
-			// do this by making whatever the strategy returns == closerBlocks
+			
+			// gmChoice = whatever the strategy returns
+			// If strat says GM do a --> make blue blocks closer
+			// If strat says GM do b --> make purple blocks closer
 		}
 		// Based on GM's strategy, set up the level
 		setUpLevel (gmChoice);
