@@ -22,11 +22,12 @@ public class SetUpLevel : MonoBehaviour {
 		// (a | b) + (ca | bd) + (c | d)
 		
 		// Load XML File: 
-		xmlDoc = XDocument.Load ("strategy.xml");
+		// xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/");
 		char gmChoice = 'n'; // haven't made one yet
-			// getting our language instance from the player --> it's 
-			// static so we can use it here and transfer between levels
-		if (ThirdPersonUserControl.langInstance.Length == 0) {
+		// getting our language instance from the player --> it's 
+		// static so we can use it here and transfer between levels
+		string langInstance = ThirdPersonUserControl.langInstance;
+		if (langInstance.Length == 0) {
 			System.Random rand = new System.Random ();
 			if (rand.Next (0, 2) == 0) {
 				// Drama Manager should move blue closer
@@ -37,7 +38,7 @@ public class SetUpLevel : MonoBehaviour {
 			}
 		} else {
 			// Get player's last choice --> last character put into the language
-			char playerChoice = ThirdPersonUserControl.langInstance [ThirdPersonUserControl.langInstance.Length - 1];
+			char playerChoice = langInstance [langInstance.Length - 1];
 			// Check strategy via player's choice
 			// ~~~~READ XML FILE~~~~~~~
 			// If strat says return a --> make blue blocks closer
@@ -48,18 +49,19 @@ public class SetUpLevel : MonoBehaviour {
 		setUpLevel (gmChoice);
 	}
 
+   // Based on our gmChoice from the strategy, we make changes...
 	private void setUpLevel(char gmChoice) {
 		Renderer closerBlockRenderer = closerBlock.GetComponent<Renderer>();
 		Renderer fartherBlockRenderer = fartherBlock.GetComponent<Renderer>();
 		if (gmChoice == 'a') {
 			// move blue closer
-				closerBlockRenderer.material.mainTexture = blue;
-				fartherBlockRenderer.material.mainTexture = purple;
+				closerBlockRenderer.material = blue;
+				fartherBlockRenderer.material = purple;
 			
 		} else {
 			// move purple closer
-				closerBlockRenderer.material.mainTexture = blue;
-				fartherBlockRenderer.material.mainTexture = purple;
+				closerBlockRenderer.material = blue;
+				fartherBlockRenderer.material = purple;
 		}
 	}
 	
