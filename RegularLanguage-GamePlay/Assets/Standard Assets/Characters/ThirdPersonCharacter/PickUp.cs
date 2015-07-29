@@ -15,7 +15,7 @@ public class PickUp : MonoBehaviour {
 	
 	}
 
-	char getCharTag() {
+	public char getCharTag() {
 		return charTag;
 	}
 

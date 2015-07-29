@@ -40,6 +40,10 @@ public class GeneralAI {
         //
         String[] compAlpha = new String[] {"a", "b"};
         String[] playerAlpha = new String[] {"c", "d"};
+        // a == MOVE BLUE BLOCK CLOSER
+        // b == MOVE PURPLE BLOCK CLOSER
+        // c == Blue BLOCK CLOSER
+        // d == Purple BLOCK CLOSER
         RegLangGameState regexGame = new RegLangGameState(compAlpha, playerAlpha, regex, "");
         regexGame.turn = true;
         Document strategy = createStrategyDocument(regexGame);

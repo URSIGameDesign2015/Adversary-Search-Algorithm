@@ -5,8 +5,8 @@ using System.Xml.Linq;
 namespace UnityStandardAssets.Characters.ThirdPerson {
 public class SetUpLevel : MonoBehaviour {
 
-		public GameObject closerBlock;
-		public GameObject fartherBlock;
+		public PickUp closerBlock;
+		public PickUp fartherBlock;
 		public Material blue;
 		public Material purple;
 
@@ -30,17 +30,18 @@ public class SetUpLevel : MonoBehaviour {
 		// static so we can use it here and transfer between levels
 		string langInstance = ThirdPersonUserControl.langInstance;
 
-		// If it's the beginning, then the GM can make any choice
+		// If it's the beginning, then the GM can make any choice --> ie do nothing
+	     gmChoice = 'a';
 		if (langInstance.Length == 0) {
-			System.Random rand = new System.Random ();
-			if (rand.Next (0, 2) == 0) {
-				// Drama Manager should move blue closer
-				gmChoice = 'a';
-			} else {
-				// Drama Manger should move purple closer
-				gmChoice = 'b';
-			}
-		// Otherwise it should follow the player's last choice
+//			System.Random rand = new System.Random ();
+//			if (rand.Next (0, 2) == 0) {
+//				// Drama Manager should move blue closer
+//				gmChoice = 'a';
+//			} else {
+//				// Drama Manger should move purple closer
+//				gmChoice = 'b';
+//			}
+//		// Otherwise it should follow the player's last choice
 		} else {
 			// Get player's last choice --> last character put into the language
 			char playerChoice = langInstance [langInstance.Length - 1];
@@ -54,28 +55,35 @@ public class SetUpLevel : MonoBehaviour {
 			// If strat says GM do b --> make purple blocks closer
 		}
 		// Based on GM's strategy, set up the level
+	    print (langInstance + gmChoice);
 		setUpLevel (gmChoice);
-	}
+		
+}
 
    // Based on our gmChoice from the strategy, we make changes...
 	private void setUpLevel(char gmChoice) {
+//		char closerTag = closerBlock.getCharTag ();
+//		char fartherTag = fartherBlock.getCharTag ();
 		Renderer closerBlockRenderer = closerBlock.GetComponent<Renderer>();
 		Renderer fartherBlockRenderer = fartherBlock.GetComponent<Renderer>();
 		if (gmChoice == 'a') {
 			// move blue closer
 				closerBlockRenderer.material = blue;
+				closerBlock.charTag = 'c';
 				fartherBlockRenderer.material = purple;
+				fartherBlock.charTag = 'd';
 			
 		} else {
 			// move purple closer
 				closerBlockRenderer.material = blue;
 				fartherBlockRenderer.material = purple;
 		}
-	}
 	
+	}
+
 	// Update is called once per frame
 	void Update () {
 	
-	}
+		}
 }
 }
