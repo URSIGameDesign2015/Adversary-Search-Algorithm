@@ -26,13 +26,12 @@ public class SetUpLevel : MonoBehaviour {
 		xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/strategy.xml");
 		
 		char gmChoice = 'n'; // haven't made one yet
-		// getting our language instance from the player --> it's 
+		// our language instance is from the player --> it's 
 		// static so we can use it here and transfer between levels
-		string langInstance = ThirdPersonUserControl.langInstance;
 
 		// If it's the beginning, then the GM can make any choice --> ie do nothing
 	     gmChoice = 'a';
-		if (langInstance.Length == 0) {
+		if (ThirdPersonUserControl.langInstance.Length == 0) {
 //			System.Random rand = new System.Random ();
 //			if (rand.Next (0, 2) == 0) {
 //				// Drama Manager should move blue closer
@@ -44,7 +43,7 @@ public class SetUpLevel : MonoBehaviour {
 //		// Otherwise it should follow the player's last choice
 		} else {
 			// Get player's last choice --> last character put into the language
-			char playerChoice = langInstance [langInstance.Length - 1];
+			char playerChoice = ThirdPersonUserControl.langInstance [ThirdPersonUserControl.langInstance.Length - 1];
 			// Find out GM's choice by using player's choice and current langInstance
 			// in the strategy file
 
@@ -54,8 +53,9 @@ public class SetUpLevel : MonoBehaviour {
 			// If strat says GM do a --> make blue blocks closer
 			// If strat says GM do b --> make purple blocks closer
 		}
-		// Based on GM's strategy, set up the level
-	    print (langInstance + gmChoice);
+		// Based on GM's strategy, set up the level and add it's char to the langInstance
+		ThirdPersonUserControl.langInstance += gmChoice;
+		print (ThirdPersonUserControl.langInstance);
 		setUpLevel (gmChoice);
 		
 }
