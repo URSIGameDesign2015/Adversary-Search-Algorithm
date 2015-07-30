@@ -46,15 +46,13 @@ public class SetUpLevel : MonoBehaviour {
 			xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/strategy.xml");
 
 			// Get player's last choice --> last character put into the language
-			char playerChoice = ThirdPersonUserControl.langInstance [ThirdPersonUserControl.langInstance.Length - 1];
+		//	char playerChoice = ThirdPersonUserControl.langInstance [ThirdPersonUserControl.langInstance.Length - 1];
 			// Find out GM's choice by using player's choice and current langInstance
 			// in the strategy file
-			
-			// ~~~~READ XML FILE~~~~~~~
-//				for (int i = 0; i < ThirdPersonUserControl.langInstance) {
-//					char elt = xmlDoc.Element("ComputerStrategy")
-//				}
-			
+			// Load XML File: 
+			xmlDoc = XDocument.Load ("/Users/kathrynhodge/GitHub/Game-Design-via-Regular-Language/RegularLanguage-GamePlay/Assets/strategy.xml");
+
+			gmChoice = getStrategy(0);
 			
 			// gmChoice = whatever the strategy returns
 			// If strat says GM do a --> make blue blocks closer
@@ -66,6 +64,22 @@ public class SetUpLevel : MonoBehaviour {
 		setUpLevel (gmChoice);
 		
 }
+
+  		 private char getStrategy(int i) {
+
+			// char compStrat = xmlDoc.Element("ComputerStrategy");
+			char[] stringArray = ThirdPersonUserControl.langInstance.ToCharArray;
+			
+			// ~~~~READ XML FILE~~~~~~~
+			 foreach (XElement el in xmlDoc.Root.Elements()) {
+				if (el.Attribute ("move") == stringArray [i]) {
+					getStrategy (i+1);
+				} else {
+					//check if we are at the end of the langInstance --> if so gameOver
+				}
+			}
+						
+		}
 
    // Based on our gmChoice from the strategy, we make changes...
 	private void setUpLevel(char gmChoice) {
